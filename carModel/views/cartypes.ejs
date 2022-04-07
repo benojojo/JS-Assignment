@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>
+        CarTypes
+    </h1>
+    <p>Welcome to the CarTypes Page</p>
+    <p>Choose  a CarType</p>
+    <form action="/cartypes" method="post">
+        <label for="manufacturer">Manufacturer:</label><br>
+        <input type="text" id="manufacturer" name="manufacturer" value=""><br>
+        <label for="model">Model:</label><br>
+        <input type="text" id="model" name="model" value=""><br>
+        <label for="color">Color:</label><br>
+        <input type="text" id="color" name="color" value=""><br><br>
+        <label for="year">Year:</label><br>
+        <input type="integer" id="year" name="year" value=""><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <% for(let i=0; i < cartypesPosts.length; i++) { %>
+        <p>
+            <span>
+                <%- i + 1 %>
+            </span>
+            <%- cartypesPosts[i].title %> by <%- cartypesPosts[i].author %> <a
+                        href="/cartypes/<%= cartypesPosts[i].id%>/delete">Delete</a> <a
+                        href="/cartypes/<%= cartypesPosts[i].id%>/edit">Edit</a>
+        </p>
+        <% } %>
+
+
+
+</body>
+
+</html>
